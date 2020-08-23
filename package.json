@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/hakatashi/atcoder-diff-predictor/issues"
   },
-  "homepage": "https://github.com/hakatashi/atcoder-diff-predictor#readme"
+  "homepage": "https://github.com/hakatashi/atcoder-diff-predictor#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "csv-parse": "^4.12.0",
+    "dotenv": "^8.2.0",
+    "download": "^8.0.0",
+    "fs-extra": "^9.0.1"
+  }
 }
