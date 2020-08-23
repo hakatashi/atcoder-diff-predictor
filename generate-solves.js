@@ -1,6 +1,8 @@
 const fs = require('fs-extra');
+const problemModels = require('./data/problem-models.json');
 
 const tasks = new Map();
+const scores = new Map();
 
 (async () => {
   const contests = await fs.readdir('data/standings');
@@ -26,6 +28,9 @@ const tasks = new Map();
             rating: rank.OldRating,
             penalty: task.Penalty,
           });
+          if (task.Status === 1 && !scores.has(taskInfo.TaskScreenName)) {
+            scores.set(taskInfo.TaskScreenName, Math.round(task.Score / 100));
+          }
         } else {
           tasks.get(taskInfo.TaskScreenName).push({
             user: rank.UserScreenName,
@@ -40,7 +45,14 @@ const tasks = new Map();
   }
   const data = [];
   for (const [taskName, solves] of tasks) {
-    data.push({taskName, solves: solves});
+    if (problemModels.hasOwnProperty(taskName)) {
+      data.push({
+        taskName,
+        solves,
+        score: scores.get(taskName) || null,
+        difficulty: problemModels[taskName].difficulty,
+      });
+    }
   }
   await fs.writeJson('data/problem-solves.json', data);
 })();
