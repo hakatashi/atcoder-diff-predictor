@@ -1,0 +1,19 @@
+{
+  "name": "atcoder-diff-predictor",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hakatashi/atcoder-diff-predictor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hakatashi/atcoder-diff-predictor/issues"
+  },
+  "homepage": "https://github.com/hakatashi/atcoder-diff-predictor#readme"
+}
